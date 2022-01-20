@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: Lending Service
+  version: '1.0'
+  summary: API for lending medias
+  description: This API allows to lend and return medias
+  contact:
+    name: Christian Langmann
+    email: c_langmann@gmx.de
+servers:
+  - url: 'http://localhost:8080/lending'
+    description: lending
+paths:
+  /lendings:
+    parameters: []
+    get:
+      summary: ''
+      operationId: get-lendings
+      responses:
+        '200':
+          description: OK
+      description: |-
+        Get all lendings
+
+        TODO: 
+        - Must be paged
+        - Must be filtered
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: userId
+          description: id of the user whose lendings should be listed
+    post:
+      summary: ''
+      operationId: post-lendings
+      responses:
+        '201':
+          description: Created lending
+      description: lend some items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: ../Uuid.yaml
+  '/lendings/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of a lending
+    get:
+      summary: Get a lending
+      tags: []
+      responses: {}
+      operationId: get-lendings-id
+components:
+  schemas:
+    Item:
+      title: Item
+      type: object
+      description: An item that can be lend
+      properties:
+        itemId:
+          $ref: ../Uuid.yaml
+        type:
+          $ref: '#/components/schemas/ItemType'
+        name:
+          type: string
+        externalId:
+          type: string
+          description: 'An external ID identifes an item by an id that is globally defined within a catalog by an external authority. E.g. Books have an ISBN. '
+      required:
+        - itemId
+        - type
+        - name
+        - externalId
+    Lending:
+      title: Lending
+      type: object
+      properties:
+        lendingId:
+          $ref: ../Uuid.yaml
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LentItem'
+        customerId:
+          $ref: ../Uuid.yaml
+      required:
+        - lendingId
+    LentItem:
+      title: LentItem
+      type: object
+      properties:
+        itemId:
+          $ref: ../Uuid.yaml
+        endOfLend:
+          type: string
+          format: date
+      required:
+        - itemId
+        - endOfLend
+  securitySchemes:
+    API Key - 1:
+      name: API Key
+      type: apiKey
+      in: query
