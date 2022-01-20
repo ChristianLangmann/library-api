@@ -17,10 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: bahmutov/npm-install@v1.6.0
+      # Run Spectral
+      - uses: stoplightio/spectral-action@v0.8.0
         with:
-          useLockFile: false
-      - name: Use spectral to lint the apis
-        run: |
-          spectral lint references/*.yaml 
-          
+          file_glob: 'api/*.yaml'
