@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use pectral to lint the apis
+      - uses: c-hive/gha-npm-cache@v1
+      - name: Use spectral to lint the apis
         run: |
-          npm install -g @stoplight/spectral-cli
           spectral lint references/*.yaml 
           
