@@ -171,7 +171,7 @@ components:
           signUpDate: '2019-08-24'
       properties:
         customerId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
         firstName:
           type: string
         lastName:

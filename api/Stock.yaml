@@ -107,7 +107,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ../Uuid.yaml
+                  $ref: ../model/Uuid.yaml
       operationId: get-items-itemId-stock
       description: Get all elements of the item on stock
     post:
@@ -148,13 +148,13 @@ components:
       type: object
       properties:
         itemId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
         externalRef:
           type: string
         name:
           type: string
         itemType:
-          $ref: ../ItemType.yaml
+          $ref: ../model/ItemType.yaml
         stock:
           type: integer
         available:

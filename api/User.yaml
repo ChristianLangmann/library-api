@@ -32,13 +32,11 @@ paths:
               examples:
                 Get User Alice Smith:
                   value:
-                    id: 142
+                    userId: abcd-142
                     firstName: Alice
                     lastName: Smith
                     email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
                     emailVerified: true
-                    signUpDate: '2019-08-24'
         '404':
           description: User Not Found
       operationId: get-users-userId
@@ -56,13 +54,11 @@ paths:
               examples:
                 Updated User Rebecca Baker:
                   value:
-                    id: 13
+                    userId: abcd-edfg13
                     firstName: Rebecca
                     lastName: Baker
                     email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
                     emailVerified: false
-                    createDate: '2019-08-24'
         '404':
           description: User Not Found
         '409':
@@ -109,13 +105,11 @@ paths:
               examples:
                 New User Bob Fellow:
                   value:
-                    id: 12
+                    userId: abcd-edfg
                     firstName: Bob
                     lastName: Fellow
                     email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
                     emailVerified: false
-                    createDate: '2020-11-18'
         '400':
           description: Missing Required Information
         '409':
@@ -164,7 +158,7 @@ components:
           emailVerified: true
       properties:
         userId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
         firstName:
           type: string
         lastName:

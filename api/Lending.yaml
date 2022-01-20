@@ -44,7 +44,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: ../Uuid.yaml
+                $ref: ../model/Uuid.yaml
   '/lendings/{id}':
     parameters:
       - schema:
@@ -66,9 +66,9 @@ components:
       description: An item that can be lend
       properties:
         itemId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
         type:
-          $ref: '#/components/schemas/ItemType'
+          $ref: ../model/ItemType.yaml
         name:
           type: string
         externalId:
@@ -84,13 +84,13 @@ components:
       type: object
       properties:
         lendingId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
         items:
           type: array
           items:
             $ref: '#/components/schemas/LentItem'
         customerId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
       required:
         - lendingId
     LentItem:
@@ -98,7 +98,7 @@ components:
       type: object
       properties:
         itemId:
-          $ref: ../Uuid.yaml
+          $ref: ../model/Uuid.yaml
         endOfLend:
           type: string
           format: date
