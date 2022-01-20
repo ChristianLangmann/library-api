@@ -20,6 +20,5 @@ jobs:
       - name: Use pectral to lint the apis
         run: |
           npm install -g @stoplight/spectral-cli
-          printf '{\n  "extends": ["spectral:oas", "spectral:asyncapi"]\n}\n' > .spectral.json
-          spectral lint Uuid.yaml
+          spectral lint references/*.yaml 
           
