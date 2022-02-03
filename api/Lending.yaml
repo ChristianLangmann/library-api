@@ -14,11 +14,17 @@ paths:
   /lendings:
     parameters: []
     get:
-      summary: ''
+      summary: Get lendings
       operationId: get-lendings
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lending'
       description: |-
         Get all lendings
 
@@ -31,13 +37,16 @@ paths:
           in: query
           name: userId
           description: id of the user whose lendings should be listed
+      tags:
+        - lending
+        - list
     post:
-      summary: ''
+      summary: Start a lending
       operationId: post-lendings
       responses:
         '201':
           description: Created lending
-      description: lend some items
+      description: start lending some items
       requestBody:
         content:
           application/json:
@@ -45,6 +54,9 @@ paths:
               type: array
               items:
                 $ref: ../model/Uuid.yaml
+      tags:
+        - lending
+        - item
   '/lendings/{id}':
     parameters:
       - schema:
@@ -55,8 +67,17 @@ paths:
         description: The id of a lending
     get:
       summary: Get a lending
+      description: 'Get a specfic landing, identified by parameter id'
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: Return a detailed lending if the requested one exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lending'
+        '404':
+          description: A lending with this id was not found
       operationId: get-lendings-id
 components:
   schemas:
@@ -81,10 +102,14 @@ components:
         - externalId
     Lending:
       title: Lending
+      description: 'Describing the lending process, containing the customer, the items lend and the conditions, like date.'
       type: object
       properties:
         lendingId:
           $ref: ../model/Uuid.yaml
+        startDate:
+          description: Start of lending
+          type: datetime
         items:
           type: array
           items:
@@ -102,11 +127,12 @@ components:
         endOfLend:
           type: string
           format: date
+        item:
+          type: Item
       required:
         - itemId
         - endOfLend
-  securitySchemes:
-    API Key - 1:
-      name: API Key
-      type: apiKey
-      in: query
+tags:
+  - name: lending
+  - name: list
+  - name: item

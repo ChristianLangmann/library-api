@@ -5,3 +5,6 @@ enum:
   - CD
   - DVD
   - GAME
+description: A description of items that can be borrowed by a library
+examples:
+  - BOOK

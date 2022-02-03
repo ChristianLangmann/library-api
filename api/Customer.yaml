@@ -25,7 +25,7 @@ paths:
               examples:
                 New Customer Bob Fellow:
                   value:
-                    customerId: abcd
+                    customerId: fe0f656e-f999-4bf8-8cc2-820c43bc1fd5
                     firstName: Bob
                     lastName: Fellow
                     email: bob.fellow@gmail.com
@@ -89,7 +89,7 @@ paths:
               examples:
                 Get Customer Alice Smith:
                   value:
-                    customerId: abcd
+                    customerId: 2248ebd9-c842-4342-8a4e-59b4220db699
                     firstName: Alice
                     lastName: Smith
                     email: alice.smith@gmail.com
@@ -113,7 +113,7 @@ paths:
               examples:
                 Updated User Rebecca Baker:
                   value:
-                    customerId: abcd
+                    customerId: 2248ebd9-c842-4342-8a4e-59b4220db699
                     firstName: Rebecca
                     lastName: Baker
                     email: rebecca@gmail.com

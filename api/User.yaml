@@ -32,7 +32,7 @@ paths:
               examples:
                 Get User Alice Smith:
                   value:
-                    userId: abcd-142
+                    userId: 19eeee9c-8103-4cd3-952d-34b2fea93244
                     firstName: Alice
                     lastName: Smith
                     email: alice.smith@gmail.com
@@ -54,7 +54,7 @@ paths:
               examples:
                 Updated User Rebecca Baker:
                   value:
-                    userId: abcd-edfg13
+                    userId: 19eeee9c-8103-4cd3-952d-34b2fea93244
                     firstName: Rebecca
                     lastName: Baker
                     email: rebecca@gmail.com
@@ -105,7 +105,7 @@ paths:
               examples:
                 New User Bob Fellow:
                   value:
-                    userId: abcd-edfg
+                    userId: 19eeee9c-8103-4cd3-952d-34b2fea93244
                     firstName: Bob
                     lastName: Fellow
                     email: bob.fellow@gmail.com
