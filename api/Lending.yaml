@@ -126,9 +126,10 @@ components:
           $ref: ../model/Uuid.yaml
         endOfLend:
           type: string
-          format: date
+          format: datetime
+          example: '2014-01-01T0:00:00Z'
         item:
-          type: Item
+          $ref: '#/components/schemas/Item'
       required:
         - itemId
         - endOfLend
